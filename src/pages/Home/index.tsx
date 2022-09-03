@@ -75,7 +75,6 @@ function LeftArrow() {
 
   return (
     <button
-      disabled={isFirstItemVisible}
       onClick={() => scrollPrev()}
       style={{ background: "transparent", height: "100%" }}
     >
@@ -83,8 +82,8 @@ function LeftArrow() {
         src={icons.arrowRight}
         alt="Passar para esquerda"
         style={{ rotate: "180deg", color: "#D0DE06" }}
-        width={40}
-        height={40}
+        width={30}
+        height={30}
       />
     </button>
   );
@@ -95,7 +94,6 @@ function RightArrow() {
 
   return (
     <button
-      disabled={isLastItemVisible}
       onClick={() => scrollNext()}
       style={{ background: "transparent", height: "100%" }}
     >
@@ -103,8 +101,8 @@ function RightArrow() {
         src={icons.arrowRight}
         alt="Passar para direita"
         style={{ filter: "grayscale(100%)" }}
-        width={40}
-        height={40}
+        width={30}
+        height={30}
       />
     </button>
   );

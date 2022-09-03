@@ -65,7 +65,7 @@ export const HomeWrapper = styled.div<{ type: ResourceType }>`
   }
 
   .react-horizontal-scrolling-menu--scroll-container {
-    padding: 0 48px;
+    /* padding: 0 48px; */
     gap: 12px;
   }
 
@@ -74,6 +74,7 @@ export const HomeWrapper = styled.div<{ type: ResourceType }>`
     left: 0;
     height: 100%;
     z-index: 999;
+    opacity: 0.3;
   }
 
   .react-horizontal-scrolling-menu--arrow-right {
@@ -81,5 +82,6 @@ export const HomeWrapper = styled.div<{ type: ResourceType }>`
     position: absolute;
     height: 100%;
     right: 0;
+    opacity: 0.3;
   }
 `;
