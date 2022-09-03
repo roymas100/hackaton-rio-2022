@@ -1,6 +1,7 @@
 import React from "react";
 import styled, { css } from "styled-components";
 import icons, { IconsKey } from "../../assets/icons";
+import { ResourceType } from "../../types/ResourceType";
 
 // import { Container } from './styles';
 
@@ -12,6 +13,7 @@ interface TabButtonProps
   active?: boolean;
   onClick?: () => void;
   icon?: IconsKey;
+  type?: ResourceType;
   ref?:
     | ((instance: HTMLDivElement | null) => void)
     | React.RefObject<HTMLDivElement>
@@ -24,10 +26,11 @@ const TabButton: React.FC<TabButtonProps> = ({
   onClick,
   icon,
   children,
+  type = "energy",
   ...props
 }) => {
   return (
-    <TabButtonWrapper active={active} {...props}>
+    <TabButtonWrapper active={active} type={type} {...props}>
       {icon && icons[icon] && <img src={icons[icon]} alt={icon} />}
       {children}
     </TabButtonWrapper>
@@ -36,8 +39,9 @@ const TabButton: React.FC<TabButtonProps> = ({
 
 export default TabButton;
 
-const TabButtonWrapper = styled.div<{ active: boolean }>`
+const TabButtonWrapper = styled.div<{ active: boolean; type: ResourceType }>`
   padding: 12px 18px;
+  cursor: pointer;
 
   display: flex;
   align-items: center;
@@ -52,12 +56,13 @@ const TabButtonWrapper = styled.div<{ active: boolean }>`
 
   background: var(--background);
 
-  ${({ active }) =>
+  ${({ active, type }) =>
     active &&
     css`
       img {
-        color: var(--primary);
+        color: var(--${type});
+        filter: var(--${type});
       }
-      border: 1px solid #d0de064d;
+      border: 1px solid ${type === "water" ? "#06DEDE4d" : "#d0de064d"};
     `};
 `;

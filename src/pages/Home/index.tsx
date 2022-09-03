@@ -1,64 +1,111 @@
-import React from "react";
-import styled from "styled-components";
+import React, { useState } from "react";
 import EnergyUsedCard from "../../components/EnergyUsedCard";
 import { Carousel } from "react-responsive-carousel";
 import Header from "../../Header";
 import ScrollContainer from "react-indiana-drag-scroll";
 import TabButton from "../../components/TabButton";
+import ChartCard from "../../components/ChartCard";
+import WaterUsedCard from "../../components/WaterUsedCard";
+import Notifications from "../Notifications";
+import "chartjs-plugin-zoom";
+// import TemperatureCard from "../../components/TemperatureCard";
+import { useColor } from "../../hooks/ColorProvider";
+import { AppWrapper, HomeWrapper, Section } from "./styles";
+import { ScrollMenu, VisibilityContext } from "react-horizontal-scrolling-menu";
+import icons from "../../assets/icons";
 
 const Home: React.FC = () => {
+  const [visible, setVisible] = useState<boolean>(false);
+  const { setType, type } = useColor();
+
   return (
-    <HomeWrapper>
-      <div className="padding">
-        <Header />
-      </div>
+    <AppWrapper type={type}>
+      <HomeWrapper type={type}>
+        <div className="padding">
+          <Header onNotificationClick={() => setVisible(true)} />
+        </div>
 
-      <div className="padding">
-        <Carousel>
-          <EnergyUsedCard />
-          <EnergyUsedCard />
-          <EnergyUsedCard />
-        </Carousel>
-      </div>
+        <ScrollMenu LeftArrow={LeftArrow} RightArrow={RightArrow}>
+          <EnergyUsedCard
+            date={new Date()}
+            onClick={() => setType("energy")}
+            active={type === "energy"}
+          />
+          <WaterUsedCard
+            date={new Date()}
+            onClick={() => setType("water")}
+            active={type === "water"}
+          />
+        </ScrollMenu>
 
-      <div className="padding">
-        <h3>Dashboard</h3>
-      </div>
+        <Section>
+          <h3 style={{ paddingLeft: 24 }}>Dashboard</h3>
 
-      <ScrollContainer className="scroll-container">
-        <TabButton active icon="room">
-          Quartos
-        </TabButton>
-        <TabButton icon="corridor">Corredor</TabButton>
-        <TabButton icon="gourmet">Área gourmet</TabButton>
-      </ScrollContainer>
-    </HomeWrapper>
+          <ScrollMenu LeftArrow={LeftArrow} RightArrow={RightArrow}>
+            <TabButton active icon="room" type={type}>
+              Quartos
+            </TabButton>
+            <TabButton icon="corridor">Corredor</TabButton>
+            <TabButton icon="gourmet">Área gourmet</TabButton>
+          </ScrollMenu>
+
+          <div className="padding">
+            <ChartCard
+              type={type}
+              title={type === "water" ? "Água utilizada" : "Uso de Energia"}
+              subTitle={type === "water" ? "Utilizada hoje" : "Usada hoje"}
+            />
+          </div>
+        </Section>
+
+        <Notifications
+          visible={visible}
+          requestClose={() => setVisible(false)}
+        />
+      </HomeWrapper>
+    </AppWrapper>
   );
 };
 
 export default Home;
 
-const HomeWrapper = styled.div`
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: center;
-  gap: 16px;
+function LeftArrow() {
+  const { isFirstItemVisible, scrollPrev } =
+    React.useContext(VisibilityContext);
 
-  .padding {
-    width: 100%;
-    padding: 0 24px;
-  }
+  return (
+    <button
+      disabled={isFirstItemVisible}
+      onClick={() => scrollPrev()}
+      style={{ background: "transparent", height: "100%" }}
+    >
+      <img
+        src={icons.arrowRight}
+        alt="Passar para esquerda"
+        style={{ rotate: "180deg", color: "#D0DE06" }}
+        width={40}
+        height={40}
+      />
+    </button>
+  );
+}
 
-  .carousel-root {
-    width: 100%;
-  }
+function RightArrow() {
+  const { isLastItemVisible, scrollNext } = React.useContext(VisibilityContext);
 
-  .scroll-container {
-    display: flex;
-    gap: 22px;
-    width: 100%;
-    padding-left: 24px;
-  }
-`;
+  return (
+    <button
+      disabled={isLastItemVisible}
+      onClick={() => scrollNext()}
+      style={{ background: "transparent", height: "100%" }}
+    >
+      <img
+        src={icons.arrowRight}
+        alt="Passar para direita"
+        style={{ filter: "grayscale(100%)" }}
+        width={40}
+        height={40}
+      />
+    </button>
+  );
+}

@@ -4,8 +4,10 @@ import icons from "../assets/icons";
 import Perfil from "../components/Perfil";
 
 // import { Container } from './styles';
-
-const Header: React.FC = () => {
+interface HeaderProps {
+  onNotificationClick: () => void;
+}
+const Header: React.FC<HeaderProps> = ({ onNotificationClick }) => {
   return (
     <HeaderWrapper>
       <div className="profile-info">
@@ -16,7 +18,12 @@ const Header: React.FC = () => {
         </div>
       </div>
       <div>
-        <img src={icons.bell} alt="Notificações" />
+        <img
+          src={icons.bell}
+          alt="Notificações"
+          onClick={() => onNotificationClick()}
+          style={{ cursor: "pointer" }}
+        />
       </div>
     </HeaderWrapper>
   );

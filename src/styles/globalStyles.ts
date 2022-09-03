@@ -7,6 +7,24 @@ export const GlobalStyles = createGlobalStyle`
     --white-40: rgba(255, 255, 255, 0.4);
     --black: #121212;
 
+    --water: #06DEDE;
+    --water-background: radial-gradient(
+      98.52% 98.52% at 66.92% -75.53%,
+     #06DEDE 0%,
+      #1e1e20 100%
+    );
+    --water-gradient:  linear-gradient(138.73deg, #06DEDE66 -1.14%, #06DEDE 76.63%);
+
+    --fundo: #1E1E20;
+    --energy: #D0DE06;
+    --energy-background: radial-gradient(
+      98.52% 98.52% at 66.92% -75.53%,
+     #d0de06 0%,
+      #1e1e20 100%
+    );
+    --energy-gradient:  linear-gradient(138.73deg, #E5D405 -1.14%, #B3EC05 76.63%);
+
+
     --primary: #D0DE06;
     --primary-30: rgba(208, 222, 6, 0.3);
     --background: #282A30;
@@ -23,6 +41,7 @@ export const GlobalStyles = createGlobalStyle`
 
  button {
     border: 0;
+    cursor: pointer;
  }
 
  h1 {

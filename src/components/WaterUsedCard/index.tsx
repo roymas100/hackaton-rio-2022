@@ -5,51 +5,48 @@ import icons from "../../assets/icons";
 import Button from "../Button";
 import "moment/locale/pt-br"; // without this line it didn't work
 moment.locale("pt-br");
-interface EnergyUsedCardProps {
+interface WaterUsedCardProps {
   date: Date;
   active?: boolean;
   onClick: () => void;
 }
 
-const EnergyUsedCard: React.FC<EnergyUsedCardProps> = ({
+const WaterUsedCard: React.FC<WaterUsedCardProps> = ({
   date,
   active = false,
   onClick,
 }) => {
   return (
-    <EnergyUsedCardWrapper active={active} onClick={onClick}>
+    <WaterUsedCardWrapper active={active} onClick={onClick}>
       <div className="container">
         <div className="info">
           <small>{moment(date).format("LL")}</small>
-          <p>Energia Usada</p>
+          <p>Água utilizada</p>
           <span>
-            <h1>142.6</h1>
-            <small>kWz</small>
+            <h1>325.2</h1>
+            <small>litros</small>
           </span>
-          <small>12% menos que ontem</small>
+          <small>23% menos que ontem</small>
         </div>
         <div className="see-details">
-          <img src={icons.energyLeaf} alt="Energia usada" />
+          <img src={icons.water} alt="Água utilizada" />
           {/* <Button>Ver detalhes</Button> */}
         </div>
       </div>
-    </EnergyUsedCardWrapper>
+    </WaterUsedCardWrapper>
   );
 };
 
-export default EnergyUsedCard;
+export default WaterUsedCard;
 
-const EnergyUsedCardWrapper = styled.div<{ active: boolean }>`
+const WaterUsedCardWrapper = styled.div<{ active: boolean }>`
   display: flex;
   align-items: center;
   justify-content: center;
-
   cursor: pointer;
+
   gap: 24px;
 
-  small {
-    white-space: nowrap;
-  }
   .container {
     display: flex;
     gap: 24px;
@@ -61,20 +58,23 @@ const EnergyUsedCardWrapper = styled.div<{ active: boolean }>`
     ${({ active }) =>
       active &&
       css`
-        border: 1px solid var(--energy);
+        border: 1px solid var(--water);
       `}
   }
 
   .info {
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
     gap: 4px;
 
     span {
       display: flex;
       gap: 4px;
       align-items: end;
+
+      h1 {
+        color: var(--water);
+      }
     }
   }
 
