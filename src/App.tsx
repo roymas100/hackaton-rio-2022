@@ -1,13 +1,26 @@
 import React from "react";
-import Button from "./components/Button";
+import styled from "styled-components";
+import Home from "./pages/Home";
 import AppProvider from "./providers/AppProvider";
 
 function App() {
   return (
-    <AppProvider>
-      <Button>Ver detalhes</Button>
-    </AppProvider>
+    <AppWrapper>
+      <AppProvider>
+        <Home />
+      </AppProvider>
+    </AppWrapper>
   );
 }
 
 export default App;
+
+const AppWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--black);
+  max-width: 480px;
+  padding: 24px 0;
+`;

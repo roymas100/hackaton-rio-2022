@@ -14,8 +14,8 @@ const Perfil: React.FC<PerfilProps> = ({ image }) => {
 export default Perfil;
 
 const Wrapper = styled.img`
-  width: 30px;
-  height: 30px;
+  width: 60px;
+  height: 60px;
 
   border-radius: 100%;
 `;

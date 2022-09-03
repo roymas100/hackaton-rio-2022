@@ -1,8 +1,10 @@
 import { createGlobalStyle } from "styled-components";
+import "react-responsive-carousel/lib/styles/carousel.min.css";
 
 export const GlobalStyles = createGlobalStyle`
  :root {
     --white: #ffffff;
+    --white-40: rgba(255, 255, 255, 0.4);
     --black: #121212;
 
     --primary: #D0DE06;
@@ -23,7 +25,32 @@ export const GlobalStyles = createGlobalStyle`
     border: 0;
  }
 
+ h1 {
+   font-weight: 500;
+font-size: 48px;
+color: var(--primary);
+line-height: 48px;
+ }
+
+ h3 {
+   font-weight: 700;
+font-size: 18px;
+color: var(--white);
+line-height: 18px;
+ }
+
  p {
     color: var(--white);
+font-size: 18px;
+ }
+
+ small {
+font-style: normal;
+font-weight: 400;
+font-size: 14px;
+line-height: 21px;
+
+
+color: var(--white-40);
  }
 `;
