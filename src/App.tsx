@@ -5,7 +5,7 @@ import AppProvider from "./hooks/AppProvider";
 import RoomsPage from "./pages/RoomsPage";
 import {RoomsContextProvider} from "./context/RoomsContext";
 import { PageContextProvider } from "./context/PageContext";
-import MainNavbar from "./components/MainNavbar";
+import MainNavbar from "./MainNavbar";
 
 function App() {
   return (

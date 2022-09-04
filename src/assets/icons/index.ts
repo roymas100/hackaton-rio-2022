@@ -8,6 +8,8 @@ import notification from "./notification.svg";
 import arrowRight from "./arrow-right.svg";
 import lighting from "./lighting.svg";
 import temperature from "./temperature.svg";
+import conditioner from "./conditioner.svg";
+import termometro from "./termometro.svg";
 
 // eslint-disable-next-line import/no-anonymous-default-export
 const icons = {
@@ -21,6 +23,8 @@ const icons = {
   arrowRight,
   lighting,
   temperature,
+  conditioner,
+  termometro,
 };
 
 export default icons;
