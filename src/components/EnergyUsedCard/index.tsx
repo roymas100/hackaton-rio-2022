@@ -6,12 +6,14 @@ interface EnergyUsedCardProps {
   date: Date;
   active?: boolean;
   onClick: () => void;
+  value: number;
 }
 
 const EnergyUsedCard: React.FC<EnergyUsedCardProps> = ({
   date,
   active = false,
   onClick,
+  value,
 }) => {
   return (
     <EnergyUsedCardWrapper active={active} onClick={onClick}>
@@ -20,14 +22,13 @@ const EnergyUsedCard: React.FC<EnergyUsedCardProps> = ({
           <small>{moment(date).format("LL")}</small>
           <p>Energia Usada</p>
           <span>
-            <h1>142.6</h1>
+            <h1>{value}</h1>
             <small>kWz</small>
           </span>
           <small>12% menos que ontem</small>
         </div>
         <div className="see-details">
           <img src={icons.energyLeaf} alt="Energia usada" />
-          {/* <Button>Ver detalhes</Button> */}
         </div>
       </div>
     </EnergyUsedCardWrapper>

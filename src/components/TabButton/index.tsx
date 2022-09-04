@@ -12,7 +12,7 @@ interface TabButtonProps
   > {
   active?: boolean;
   onClick?: () => void;
-  icon?: IconsKey;
+  icon?: "calendar" | "room" | "porta";
   type?: ResourceType;
   ref?:
     | ((instance: HTMLDivElement | null) => void)
@@ -29,9 +29,13 @@ const TabButton: React.FC<TabButtonProps> = ({
   type = "energy",
   ...props
 }) => {
+  const colorType = type === "water" ? "azul" : "verde";
+
+  const color = active ? colorType : "branco";
+
   return (
-    <TabButtonWrapper active={active} type={type} {...props}>
-      {icon && icons[icon] && <img src={icons[icon]} alt={icon} />}
+    <TabButtonWrapper active={active} onClick={onClick} type={type} {...props}>
+      {icon && icons[icon] && <img src={icons[icon][color]} alt={icon} />}
       {children}
     </TabButtonWrapper>
   );

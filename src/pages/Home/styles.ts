@@ -26,7 +26,6 @@ export const Section = styled.div`
 `;
 
 export const HomeWrapper = styled.div<{ type: ResourceType }>`
-  padding: 24px 0;
   width: 100%;
   min-height: 100vh;
   display: flex;

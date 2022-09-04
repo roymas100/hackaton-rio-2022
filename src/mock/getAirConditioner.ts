@@ -1,0 +1,75 @@
+// eslint-disable-next-line import/no-anonymous-default-export
+export default {
+  data: [
+    {
+      id: "34245552-ea64-4cfe-a169-13461068f9bc",
+      isActive: true,
+      temperature: 22,
+      kiloWattsPerHour: 245,
+      totalActiveHours: 306,
+    },
+    {
+      id: "bc0d2858-380f-49f7-b7a4-9ecd5a04d931",
+      isActive: true,
+      temperature: 23,
+      kiloWattsPerHour: 407,
+      totalActiveHours: 556,
+    },
+    {
+      id: "40c7144f-308c-4355-a786-69bdab0c3c59",
+      isActive: true,
+      temperature: 19,
+      kiloWattsPerHour: 304,
+      totalActiveHours: 83,
+    },
+    {
+      id: "9d1ade1d-c335-48fa-b52b-75f08b9152b9",
+      isActive: true,
+      temperature: 21,
+      kiloWattsPerHour: 498,
+      totalActiveHours: 47,
+    },
+    {
+      id: "7f90d783-90d1-4db4-a4cf-8d34aff81836",
+      isActive: true,
+      temperature: 18,
+      kiloWattsPerHour: 258,
+      totalActiveHours: 383,
+    },
+    {
+      id: "f3371492-44f5-461b-abf7-02531d5c40d3",
+      isActive: true,
+      temperature: 19,
+      kiloWattsPerHour: 442,
+      totalActiveHours: 665,
+    },
+    {
+      id: "0d7902f2-718f-433b-8d12-a090eba85686",
+      isActive: true,
+      temperature: 16,
+      kiloWattsPerHour: 479,
+      totalActiveHours: 526,
+    },
+    {
+      id: "e5372218-b504-4fcf-a3c2-85285fcae8ba",
+      isActive: true,
+      temperature: 21,
+      kiloWattsPerHour: 316,
+      totalActiveHours: 666,
+    },
+    {
+      id: "0fcdf7a8-346a-4b7b-b98c-68deb814e741",
+      isActive: true,
+      temperature: 22,
+      kiloWattsPerHour: 232,
+      totalActiveHours: 757,
+    },
+    {
+      id: "54b4e8d6-7b16-451d-b58c-36cf42041311",
+      isActive: true,
+      temperature: 19,
+      kiloWattsPerHour: 481,
+      totalActiveHours: 182,
+    },
+  ],
+};

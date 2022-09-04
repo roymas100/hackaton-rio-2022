@@ -6,21 +6,23 @@ interface WaterUsedCardProps {
   date: Date;
   active?: boolean;
   onClick: () => void;
+  value: number;
 }
 
 const WaterUsedCard: React.FC<WaterUsedCardProps> = ({
   date,
   active = false,
   onClick,
+  value,
 }) => {
   return (
     <WaterUsedCardWrapper active={active} onClick={onClick}>
       <div className="container">
         <div className="info">
           <small>{moment(date).format("LL")}</small>
-          <p>Água utilizada</p>
+          <p>Gasto de Água</p>
           <span>
-            <h1>325.2</h1>
+            <h1>{value}</h1>
             <small>litros</small>
           </span>
           <small>23% menos que ontem</small>
@@ -43,6 +45,10 @@ const WaterUsedCardWrapper = styled.div<{ active: boolean }>`
   cursor: pointer;
 
   gap: 24px;
+
+  small {
+    white-space: nowrap;
+  }
 
   .container {
     display: flex;

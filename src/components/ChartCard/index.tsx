@@ -55,18 +55,24 @@ export const options = {
   },
 };
 
-const labels = ["1PM", "2PM", "3PM", "5PM", "6PM", "7PM", "8PM"];
+// const labels = ["01/07", "02/07", "03/07", "04/07", "05/07", "06/07"];
 
 interface ChartCardProps {
   title: string;
   type?: ResourceType;
   subTitle: string;
+  labels: string[];
+  data: number[];
+  total: number;
 }
 
 const ChartCard: React.FC<ChartCardProps> = ({
   type = "energy",
   title,
   subTitle,
+  labels,
+  data: apiData,
+  total,
 }) => {
   const data: ChartData<
     "line",
@@ -76,8 +82,8 @@ const ChartCard: React.FC<ChartCardProps> = ({
     labels,
     datasets: [
       {
-        label: "Dataset 1",
-        data: labels.map(() => faker.datatype.number({ min: 0, max: 1000 })),
+        label: type,
+        data: apiData,
         borderColor: type === "water" ? "#06DEDE" : "#B3EC05",
         backgroundColor: type === "water" ? "#06DEDE" : "#B3EC05",
         pointRadius: 0,
@@ -100,7 +106,10 @@ const ChartCard: React.FC<ChartCardProps> = ({
           <p className="card-name">{title}</p>
           <p className="card-description">{subTitle}</p>
         </div>
-        <p className="card-value">32kWz</p>
+        <p className="card-value">
+          {total}
+          {type === "water" ? "L" : "kWz"}
+        </p>
       </header>
       <Line data={data} options={options} />
     </ChartCardWrapper>

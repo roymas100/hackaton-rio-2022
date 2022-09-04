@@ -5,10 +5,10 @@ import Switch from "react-switch";
 import moment from "moment";
 
 interface AirConditionerCardProps {
-  kilowatts: string;
-  temperature: string;
+  kilowatts: number;
+  temperature: number;
   index: number;
-  lastActive: Date;
+  lastActive?: Date;
   active: boolean;
   onChange: (boolean: boolean) => void;
 }
@@ -40,10 +40,12 @@ const AirConditionerCard: React.FC<AirConditionerCardProps> = ({
       </div>
 
       <span className="title-conditioner">Ar condicionado</span>
-      <small className="subTitle-conditioner">Refrigerador {index}</small>
+      <small className="subTitle-conditioner">Refrigerador {index + 1}</small>
 
       <div className="section3">
-        <span className="last-active">{moment(lastActive).calendar()}</span>
+        {lastActive && (
+          <span className="last-active">{moment(lastActive).calendar()}</span>
+        )}
 
         <Switch
           onChange={onChange}
@@ -52,6 +54,9 @@ const AirConditionerCard: React.FC<AirConditionerCardProps> = ({
           onColor="#fff"
           onHandleColor="#1E1E20"
           uncheckedIcon={false}
+          width={30}
+          height={17}
+          handleDiameter={13}
         />
       </div>
     </AirConditionerCardWrapper>
@@ -61,7 +66,7 @@ const AirConditionerCard: React.FC<AirConditionerCardProps> = ({
 export default AirConditionerCard;
 
 const AirConditionerCardWrapper = styled.div`
-  padding: 8px 12px;
+  padding: 12px 16px;
   min-width: 160px;
   min-height: 160px;
   display: flex;
@@ -135,7 +140,6 @@ const AirConditionerCardWrapper = styled.div`
     width: 100%;
     font-weight: 700;
     font-size: 16px;
-    line-height: 24px;
     color: var(--white);
   }
 
