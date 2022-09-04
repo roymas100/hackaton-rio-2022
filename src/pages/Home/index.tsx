@@ -1,8 +1,6 @@
 import React, { useState } from "react";
 import EnergyUsedCard from "../../components/EnergyUsedCard";
-import { Carousel } from "react-responsive-carousel";
 import Header from "../../Header";
-import ScrollContainer from "react-indiana-drag-scroll";
 import TabButton from "../../components/TabButton";
 import ChartCard from "../../components/ChartCard";
 import WaterUsedCard from "../../components/WaterUsedCard";
@@ -13,6 +11,7 @@ import { useColor } from "../../hooks/ColorProvider";
 import { AppWrapper, HomeWrapper, Section } from "./styles";
 import { ScrollMenu, VisibilityContext } from "react-horizontal-scrolling-menu";
 import icons from "../../assets/icons";
+import AirConditionerCard from "../../components/AirConditionerCard";
 
 const Home: React.FC = () => {
   const [visible, setVisible] = useState<boolean>(false);
@@ -56,6 +55,16 @@ const Home: React.FC = () => {
               subTitle={type === "water" ? "Utilizada hoje" : "Usada hoje"}
             />
           </div>
+          <div className="padding">
+            <AirConditionerCard
+              active
+              index={0}
+              kilowatts="21"
+              lastActive={new Date()}
+              onChange={(value) => console.log(value)}
+              temperature="21"
+            />
+          </div>
         </Section>
 
         <Notifications
@@ -75,6 +84,7 @@ function LeftArrow() {
 
   return (
     <button
+      disabled={isFirstItemVisible}
       onClick={() => scrollPrev()}
       style={{ background: "transparent", height: "100%" }}
     >
@@ -94,6 +104,7 @@ function RightArrow() {
 
   return (
     <button
+      disabled={isLastItemVisible}
       onClick={() => scrollNext()}
       style={{ background: "transparent", height: "100%" }}
     >
