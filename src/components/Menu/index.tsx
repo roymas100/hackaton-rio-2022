@@ -89,11 +89,7 @@ const Menu: React.FC = () => {
 export default Menu;
 
 const MenuWrapper = styled.div`
-  background: radial-gradient(
-      162.46% 520.88% at 9.83% 3.6%,
-      rgba(255, 255, 255, 0.56) 0%,
-      rgba(217, 217, 217, 0.08) 100%
-    )
+  background-color: #212121;
     /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */;
   background-blend-mode: overlay;
   /* Glassmorphism */
