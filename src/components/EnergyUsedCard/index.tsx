@@ -2,9 +2,6 @@ import moment from "moment";
 import React from "react";
 import styled, { css } from "styled-components";
 import icons from "../../assets/icons";
-import Button from "../Button";
-import "moment/locale/pt-br"; // without this line it didn't work
-moment.locale("pt-br");
 interface EnergyUsedCardProps {
   date: Date;
   active?: boolean;
