@@ -1,6 +1,8 @@
 import React from 'react'
 import MainNavbar from '../../components/MainNavbar'
 import { usePages } from '../../hooks/usePages'
+import Home from '../Home'
+import RoomsPage from '../RoomsPage'
 import { MainPageContainer } from './styles'
 
 
@@ -11,7 +13,8 @@ export default function MainPage() {
   return (
     <MainPageContainer>
         {currentPage === 'comunidade' ? 'oi'  : ''}
-        {currentPage === 'denuncia' ? 'oi' : ''}
+        {currentPage === 'dados' ? <Home/> : ''}
+        {currentPage === 'rooms' ? <RoomsPage/> : ''}
         <MainNavbar/>
     </MainPageContainer>
   )

@@ -7,6 +7,7 @@ import water from "./water.svg";
 import notification from "./notification.svg";
 import arrowRight from "./arrow-right.svg";
 import lighting from "./lighting.svg";
+import lightingWhite from "./lighting-white.svg";
 import temperature from "./temperature.svg";
 import conditioner from "./conditioner.svg";
 import termometro from "./termometro.svg";
@@ -25,6 +26,7 @@ const icons = {
   temperature,
   conditioner,
   termometro,
+  lightingWhite,
 };
 
 export default icons;

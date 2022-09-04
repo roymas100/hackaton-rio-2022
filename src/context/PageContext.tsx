@@ -1,6 +1,6 @@
 import { createContext, ReactNode, useState } from 'react'
 
-export type PageTypes = 'mapa' | 'comunidade' | 'user' | 'denuncia'
+export type PageTypes = 'rooms' | 'comunidade' | 'hotelia' | 'dados'
 
 type PageContextType = {
   currentPage:  PageTypes
@@ -15,7 +15,7 @@ export const PageContext = createContext({} as PageContextType)
 
 export function PageContextProvider(props: PageContextProviderProps) {
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const [currentPage, setCurrentPage] = useState<PageTypes>('mapa')
+  const [currentPage, setCurrentPage] = useState<PageTypes>('dados')
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const setPage = (language:PageTypes) => {
     setCurrentPage(language)
