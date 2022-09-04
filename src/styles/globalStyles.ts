@@ -72,4 +72,8 @@ line-height: 21px;
 
 color: var(--white-40);
  }
+
+ html {
+   background-color:  #1E1E20;
+ }
 `;
