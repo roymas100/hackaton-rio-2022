@@ -8,7 +8,9 @@ export const MainNavbarContainer = styled.nav`
     background-color: #fff;
     width: 100%;
 
-    padding: 24px 32px;
+    padding: 12px 32px;
+    position: fixed;
+    bottom: 0;
 
     background: radial-gradient(162.46% 520.88% at 9.83% 3.6%, rgba(255, 255, 255, 0.56) 0%, rgba(217, 217, 217, 0.08) 100%) /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */;
     background-blend-mode: overlay;
@@ -18,7 +20,7 @@ export const MainNavbarContainer = styled.nav`
 
     ul {
         display: flex;
-        gap: 46px;
+        gap: 24px;
         list-style: none;
     }
 
@@ -27,11 +29,11 @@ export const MainNavbarContainer = styled.nav`
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        gap: 6px;
+        gap: 4px;
 
         svg {
-            height: 32px;
-            width: 32px;
+            height: 28px;
+            width: 28px;
         }
         
         span {
