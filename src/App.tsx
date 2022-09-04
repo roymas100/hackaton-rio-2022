@@ -2,13 +2,23 @@ import React from "react";
 import styled from "styled-components";
 import Home from "./pages/Home";
 import AppProvider from "./hooks/AppProvider";
-import { ResourceType } from "./types/ResourceType";
+import RoomsPage from "./pages/RoomsPage";
+import {RoomsContextProvider} from "./context/RoomsContext";
+import { PageContextProvider } from "./context/PageContext";
+import MainNavbar from "./components/MainNavbar";
 
 function App() {
   return (
-    <AppProvider>
-      <Home />
-    </AppProvider>
+    <PageContextProvider>
+      <RoomsContextProvider>
+              <AppProvider>
+                  {/* <Home /> */}
+                  <RoomsPage/>
+                  <MainNavbar/>
+              </AppProvider>
+      </RoomsContextProvider>
+    </PageContextProvider>
+
   );
 }
 
